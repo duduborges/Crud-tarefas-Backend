@@ -39,5 +39,9 @@ Content-Type: application/json
 }
 
 ###
+PUT http://localhost:3333/concluir/6b9c8ca2-3b7e-46d4-9533-85da2c1b8c21
+
+
+###
 
 DELETE http://localhost:3333/tarefas/16f5b61d-3702-4ee4-8ec2-b5c6ddcd0956

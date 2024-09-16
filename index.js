@@ -123,14 +123,8 @@ app.put('/tarefas/:id', async (req, res) => {
 app.put('/concluir/:id', async (req, res) => {
      try {
           const tarefaID = req.params.id;
-          const { concluido } = req.body;
-
-          const alteracoes = {
-               concluido
-          };
-
-          await database.updateTarefa(tarefaID, alteracoes);
-          res.status(200).send("Tarefa concluida com sucesso.");
+          await database.concluirTarefa(tarefaID);
+          res.status(200).send("Tarefa concluída com sucesso.");
      } catch (error) {
           if (error.message === 'Tarefa não encontrada') {
                res.status(404).send("Tarefa não encontrada.");

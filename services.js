@@ -65,16 +65,14 @@ export class DatabaseTarefa {
 
      // Marcar concluido
 
-     async concluirTarefa(id, tarefa) {
-          const { concluido } = tarefa;
+     async concluirTarefa(id) {
+          const [tarefa] = await query('SELECT * FROM tarefas WHERE id = ?', [id]);
 
-          const existe = await query('SELECT * FROM tarefas WHERE id = ?', [id]);
-          if (existe.length === 0) {
+          if (!tarefa) {
                throw new Error('Tarefa não encontrada');
           }
-          await query(
-               'UPDATE tarefas SET concluido =? WHERE id = ?',
-               [corTexto, concluido, id]
-          );
+
+          await query('UPDATE tarefas SET concluido = true WHERE id = ?', [id]);
      }
+
 }
