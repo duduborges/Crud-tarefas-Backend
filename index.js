@@ -18,6 +18,12 @@ app.listen(3333, () => {
 
 //----------------ROTAS---DO---CRUD---------------------//
 
+//teste 
+
+app.get("/", (req, res) => {
+     return res.send("teste");
+});
+
 // Criar (rota POST)
 
 app.post('/tarefas', async (req, res) => {

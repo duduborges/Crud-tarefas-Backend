@@ -5,6 +5,13 @@ GET http://localhost:3333/tarefas
 
 ###
 
+
+###
+
+GET http://localhost:3333/
+
+###
+
 GET http://localhost:3333/tarefas/060212ad-a79f-4aca-888d-74f0c18168bb
 
 ###
