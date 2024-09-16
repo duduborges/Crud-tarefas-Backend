@@ -8,7 +8,7 @@ GET http://localhost:3333/tarefas
 
 ###
 
-GET http://localhost:3333/
+GET http://localhost:3333/tarefas/concluidas
 
 ###
 
@@ -20,9 +20,11 @@ POST http://localhost:3333/tarefas
 Content-Type: application/json
 
 {
-    "titulo": "Carregar meu celularAAAAAAAAAAAAAA",
+    "titulo": "Carregar meu celular",
     "descricao": "Tenho que colocar meu celular para carregar",
-    "cor": "#FFFFFF"
+    "cor": "#FFFFFF",
+    "corTexto": "#000",
+    "concluido": "true"
 }
 
 ###
