@@ -30,13 +30,14 @@ export class DatabaseTarefa {
      // Criar nova tarefa
      async createTarefa(tarefa) {
           const id = randomUUID();
-          const { titulo, descricao, cor, corTexto, concluido } = tarefa;
+          const { titulo, descricao, cor, corTexto, concluida } = tarefa;
 
           await query(
                'INSERT INTO tarefas (id, titulo, descricao, cor, corTexto, concluido) VALUES (?, ?, ?, ?, ?, ?)',
-               [id, titulo, descricao, cor, corTexto, concluido]
+               [id, titulo, descricao, cor, corTexto, concluida]
           );
      }
+
 
      // Atualizar tarefa por ID
      async updateTarefa(id, tarefa) {
