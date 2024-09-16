@@ -43,13 +43,16 @@ export class DatabaseTarefa {
      async updateTarefa(id, tarefa) {
           const { titulo, descricao, cor, corTexto, concluido } = tarefa;
 
+          console.log("Dados para atualização:", tarefa);
+
           const existe = await query('SELECT * FROM tarefas WHERE id = ?', [id]);
           if (existe.length === 0) {
                throw new Error('Tarefa não encontrada');
           }
+
           await query(
-               'UPDATE tarefas SET titulo = ?, descricao = ?, cor = ?, corTexto = ?,  concluido =? WHERE id = ?',
-               [titulo, descricao, cor, corTexto, concluido, id]
+               'UPDATE tarefas SET titulo = ?, descricao = ?, cor = ?, corTexto = ?, concluido = ? WHERE id = ?',
+               [titulo, descricao, cor, corTexto, concluido ?? false, id]
           );
      }
 

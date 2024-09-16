@@ -95,18 +95,20 @@ app.delete("/tarefas/:id", async (req, res) => {
 
 
 // Atualizar tarefa (rota PUT)
-
 app.put('/tarefas/:id', async (req, res) => {
      try {
           const tarefaID = req.params.id;
-          const { titulo, descricao, cor, corTexto } = req.body;
+          const { titulo, descricao, cor, corTexto, concluido } = req.body;
 
           const alteracoes = {
                titulo,
                descricao,
                cor,
-               corTexto
+               corTexto,
+               concluido: concluido !== undefined ? concluido : false,
           };
+
+          console.log('Atualizando tarefa:', tarefaID, alteracoes);
 
           await database.updateTarefa(tarefaID, alteracoes);
           res.status(200).send("Tarefa atualizada com sucesso.");
